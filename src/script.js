@@ -11,12 +11,26 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Mostriamo la data di domani con il giorno della settimana
     getTomorrowDate(); // Chiamata alla funzione per mostrare la data di domani
-  });
+});
   
-  // Funzione per ottenere la data formattata di domani con il giorno della settimana
-  function getTomorrowDate() {
-    const today = new Date(); // Creiamo un oggetto Date per la data attuale
+// Funzione per ottenere la data formattata di domani con il giorno della settimana
+function getTomorrowDate() {
+    let today = new Date(); // Creiamo un oggetto Date per la data attuale
     today.setDate(today.getDate() + 1); // Aggiungiamo un giorno
+
+    // Controlliamo se domani è Sabato o Domenica
+    let dayOfWeek = today.getDay(); // Otteniamo il giorno della settimana (0 = Domenica, 6 = Sabato)
+    if (dayOfWeek === 6) { // Se è Sabato
+        today.setDate(today.getDate() + 2); // Impostiamo a Lunedì
+        
+        // Rimuoviamo il testo "tomorrow"
+        let tomorrowElements = document.getElementsByClassName("tomorrow_word");
+        for (let i = 0; i < tomorrowElements.length; i++) {
+            tomorrowElements[i].innerHTML = ""; // Rimuoviamo il contenuto
+        }
+    } else if (dayOfWeek === 0) { // Se è Domenica
+        today.setDate(today.getDate() + 1); // Impostiamo a Lunedì
+    }
     
     // Opzioni per ottenere il giorno della settimana
     const giornoDellaSettimana = today.toLocaleDateString('it-IT', { weekday: 'long' }); // Otteniamo il giorno della settimana in italiano
@@ -30,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const meseMaiuscolo = dataParts[1].charAt(0).toUpperCase() + dataParts[1].slice(1);
   
     // Componiamo la stringa finale
-    const finalString = `${giornoMaiuscolo} ${giornoNumerico} ${meseMaiuscolo}`; // Stringa finale come "Mercoledì 25 Settembre"
+    const finalString = `${giornoMaiuscolo} ${giornoNumerico} ${meseMaiuscolo}`; // Stringa finale
     document.querySelector('.date').innerHTML = finalString; // Visualizziamo la data nella <span class="date">
-  }
+}
   
-  // Funzione per ottenere la classe di colore in base al testo della cella
-  function getColorClass(text) {
+// Funzione per ottenere la classe di colore in base al testo della cella
+function getColorClass(text) {
     let colorClass = "";
   
     switch (text) {
@@ -90,4 +104,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     return colorClass; // Restituiamo la classe di colore
-  }
+}
