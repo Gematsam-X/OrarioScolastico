@@ -1,0 +1,97 @@
+body {
+  background-color: burlywood;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  font-size: larger;
+  text-align: center;
+  height: 10%;
+  width: 10%;
+}
+
+table {
+  border-collapse: collapse;
+  height: 60%;
+  width: 70%;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 90vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 300%;
+}
+
+/* Classi dei colori */
+
+.inglese-color {
+  color: rgb(0, 161, 0);
+}
+
+.storia-color {
+  color: yellow;
+}
+
+.scienze-color {
+  color: rgb(197, 128, 0);
+}
+
+.tecnologia-color {
+  color: purple;
+}
+
+.religione_alternativa-color {
+  color: brown;
+}
+
+.grammatica-color {
+  color: red;
+}
+
+.geometria-color {
+  color: rgb(90, 177, 211);
+}
+
+.antologia-color {
+  color: rgb(218, 24, 127);
+}
+
+.matematica-color {
+  color: blue;
+}
+
+.geografia-color {
+  color: lightseagreen;
+}
+
+.letteratura-color {
+  color: blueviolet;
+}
+
+.motoria-color {
+  color: rgb(1, 80, 1);
+}
+
+.musica-color {
+  color: darkslategrey;
+}
+
+.spagnolo-color {
+  color: rgb(143, 134, 5);
+}
+
+.arte-color {
+  color: darkmagenta;
+}
+
+.default-color {
+  color: black;
+}
